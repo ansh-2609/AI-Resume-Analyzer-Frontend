@@ -200,7 +200,6 @@ function Dashboard() {
       const updatedResumes = await fetchUserResumes(userId);
       dispatch(setResumes(updatedResumes));
       setSelectedResume(null);
-      // setMetadata({});
       setMetadata({
         score: 0,
         strengths: [],
@@ -213,7 +212,6 @@ function Dashboard() {
       <div
         className={`min-h-screen px-4 py-8 lg:px-8 ${isDark ? "bg-gray-900" : "bg-gray-50"}`}
       >
-        {/* Main Content with Sidebar Offset */}
         <div className="max-w-7xl mx-auto">
           {/* Welcome Section */}
           <div className="mb-8">
