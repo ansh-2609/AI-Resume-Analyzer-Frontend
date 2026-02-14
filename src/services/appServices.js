@@ -69,7 +69,7 @@ export const uploadResume = async (formData) => {
 
 export const analysisResume = async (id) => {
   try {
-    const analysisResponse = await fetch("http://localhost:5000/api/analyze/extract-skills",{
+    const analysisResponse = await fetch(`${API_URL}/api/analyze/extract-skills`,{
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -108,7 +108,7 @@ export const fetchMatchedJobs = async (resumeId) => {
   try {
     const token = localStorage.getItem("token");
 
-    const response = await fetch("http://localhost:5000/api/jobs/match-real", {
+    const response = await fetch(`${API_URL}/api/jobs/match-real`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -177,7 +177,7 @@ export const deleteResume = async(resumeId) => {
 
 export const matchJob = async(resumeId, jobDescription) => {
   try{
-    const response = await fetch('http://localhost:5000/api/analyze/match-job', {
+    const response = await fetch(`${API_URL}/api/analyze/match-job`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
