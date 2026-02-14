@@ -463,7 +463,7 @@ function Dashboard() {
                 {selectedResume && (
                   <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <button
-                      className={`px-4 py-2 border text-sm font-medium rounded-md ${
+                      className={`px-4 py-2 border text-sm cursor-pointer font-medium rounded-md ${
                         isDark
                           ? "border-gray-600 text-gray-300 hover:bg-gray-700"
                           : "border-gray-300 text-gray-700 hover:bg-gray-50"
@@ -474,7 +474,7 @@ function Dashboard() {
                     </button>
 
                     <button
-                      className="px-4 py-2 bg-red-600 text-sm font-medium rounded-md text-white hover:bg-red-700"
+                      className="px-4 py-2 bg-red-600 text-sm font-medium cursor-pointer rounded-md text-white hover:bg-red-700"
                       onClick={() => handleDeleteResume(selectedResume.id)}
                     >
                       Delete
