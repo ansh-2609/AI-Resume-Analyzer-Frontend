@@ -145,7 +145,7 @@ function Header({ onMobileMenuOpen }) {
             <div className="flex items-center space-x-3">
               <button
                 onClick={handleSignup}
-                className="hidden md:flex rounded-md bg-blue-400 px-4 py-2 text-sm text-white hover:bg-blue-600 cursor-pointer"
+                className="hidden md:flex rounded-md bg-blue-300 px-4 py-2 text-sm text-white hover:bg-blue-500 cursor-pointer"
               >
                 Sign Up
               </button>
@@ -153,7 +153,7 @@ function Header({ onMobileMenuOpen }) {
                 onClick={handleLogin}
                 className={`rounded-md px-4 py-2 cursor-pointer text-sm font-medium ${
                   isDark
-                    ? "bg-gray-800 text-white hover:bg-gray-700"
+                    ? "bg-gray-800 text-white hover:bg-gray-500"
                     : "bg-white text-blue-600 hover:bg-gray-100"
                 }`}
               >
