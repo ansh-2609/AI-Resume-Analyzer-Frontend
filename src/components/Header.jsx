@@ -145,7 +145,7 @@ function Header({ onMobileMenuOpen }) {
             <div className="flex items-center space-x-3">
               <button
                 onClick={handleSignup}
-                className="hidden md:flex rounded-md bg-blue-300 px-4 py-2 text-sm text-white hover:bg-blue-500 cursor-pointer"
+                className="hidden md:flex rounded-md bg-blue-500 px-4 py-2 text-sm text-white hover:bg-blue-300 cursor-pointer"
               >
                 Sign Up
               </button>
