@@ -548,7 +548,7 @@ function Application() {
                             </a>
                             <button
                               onClick={() => toggleExpand(index)}
-                              className={`inline-flex items-center px-4 py-2 border text-sm font-medium rounded-lg ${
+                              className={`inline-flex items-center px-4 py-2 border cursor-pointer text-sm font-medium rounded-lg ${
                                 isDark
                                   ? "border-gray-600 text-gray-300 hover:bg-gray-700"
                                   : "border-gray-300 text-gray-700 hover:bg-gray-50"

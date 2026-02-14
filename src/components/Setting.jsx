@@ -175,14 +175,14 @@ function Settings() {
 
         <div className="flex gap-3 pt-2">
           <button
-            className="px-4 py-2 border rounded-lg text-sm"
+            className="px-4 py-2 border cursor-pointer rounded-lg text-sm"
             onClick={() => setShowConfirmModal(true)}
           >
             Change Password
           </button>
 
           <button 
-            className="px-4 py-2 border border-red-400 text-red-500 rounded-lg text-sm"
+            className="px-4 py-2 border border-red-400 cursor-pointer text-red-500 rounded-lg text-sm"
             onClick={() => setShowDeleteModal(true)}
           >
             Delete Account
@@ -205,7 +205,7 @@ function Settings() {
 
             <div className="flex justify-end gap-3">
               <button
-                className="px-4 py-2 bg-blue-600 text-white rounded-lg"
+                className="px-4 py-2 bg-blue-600 cursor-pointer text-white rounded-lg"
                 onClick={() => {
                   setShowConfirmModal(false);
                   setShowPasswordModal(true);
@@ -214,7 +214,7 @@ function Settings() {
                 Yes
               </button>
               <button
-                className="px-4 py-2 border rounded-lg"
+                className="px-4 py-2 border cursor-pointer rounded-lg"
                 onClick={() => setShowConfirmModal(false)}
               >
                 Cancel
@@ -269,13 +269,13 @@ function Settings() {
               <div className="flex justify-end gap-3">
                 <button
                   type="submit"
-                  className="px-4 py-2 bg-blue-600 text-white rounded-lg"
+                  className="px-4 py-2 bg-blue-600 cursor-pointer text-white rounded-lg"
                 >
                   Update
                 </button>
                 <button
                   type="button"
-                  className="px-4 py-2 border rounded-lg"
+                  className="px-4 py-2 border cursor-pointer rounded-lg"
                   onClick={() => setShowPasswordModal(false)}
                 >
                   Cancel
@@ -301,7 +301,7 @@ function Settings() {
               Your password has been changed successfully.
             </p>
             <button
-              className="px-6 py-2 bg-blue-600 text-white rounded-lg"
+              className="px-6 py-2 bg-blue-600 cursor-pointer text-white rounded-lg"
               onClick={() => setShowSuccessModal(false)}
             >
               OK
@@ -329,13 +329,13 @@ function Settings() {
 
             <div className="flex justify-end gap-3">
               <button
-                className="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700"
+                className="px-4 py-2 bg-red-600 cursor-pointer text-white rounded-lg hover:bg-red-700"
                 onClick={handleDeleteAccount}
               >
                 Delete
               </button>
               <button
-                className="px-4 py-2 border rounded-lg"
+                className="px-4 py-2 border cursor-pointer rounded-lg"
                 onClick={() => setShowDeleteModal(false)}
               >
                 Cancel
@@ -365,7 +365,7 @@ function Settings() {
             </p>
 
             <button
-              className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+              className="px-6 py-2 bg-blue-600 cursor-pointer text-white rounded-lg hover:bg-blue-700"
               onClick={() => {
                 setShowDeleteSuccessModal(false);
                 navigate("/login");
@@ -388,7 +388,7 @@ function Settings() {
         <h2 className="text-lg font-semibold mb-3">Appearance</h2>
 
         <select
-          className={`w-40 p-2 border rounded-lg ${
+          className={`w-40 p-2 border cursor-pointer rounded-lg ${
             isDark
               ? "bg-gray-700 border-gray-600 text-gray-100"
               : "bg-white border-gray-300"
@@ -403,7 +403,7 @@ function Settings() {
       <button
         onClick={handleSaveProfile}
         disabled={!isChange}
-        className={`px-6 py-3 rounded-lg ${
+        className={`px-6 py-3 cursor-pointer rounded-lg ${
           isChange
             ? "bg-blue-600 text-white hover:bg-blue-700"
             : "bg-gray-400 text-black cursor-not-allowed"

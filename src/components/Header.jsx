@@ -65,7 +65,7 @@ function Header({ onMobileMenuOpen }) {
         <div className="flex items-center">
           <button
             onClick={onMobileMenuOpen}
-            className={`mr-3 rounded-md p-2 lg:hidden ${
+            className={`mr-3 rounded-md p-2 cursor-pointer lg:hidden ${
               isDark ? "hover:bg-blue-800" : "hover:bg-blue-700"
             }`}
           >
@@ -91,7 +91,7 @@ function Header({ onMobileMenuOpen }) {
               <div className="relative">
                 <button
                   onClick={() => setUserMenuOpen(!userMenuOpen)}
-                  className={`rounded-full p-1 ${
+                  className={`rounded-full p-1 cursor-pointer ${
                     isDark ? "hover:bg-blue-800" : "hover:bg-blue-700"
                   }`}
                 >
@@ -115,7 +115,7 @@ function Header({ onMobileMenuOpen }) {
                           item.action();
                           setUserMenuOpen(false);
                         }}
-                        className={`w-full px-4 py-2 text-left text-sm ${
+                        className={`w-full px-4 py-2 cursor-pointer text-left text-sm ${
                           isDark
                             ? "text-gray-200 hover:bg-gray-700"
                             : "text-gray-700 hover:bg-gray-100"
@@ -127,7 +127,7 @@ function Header({ onMobileMenuOpen }) {
                     <div className="border-t border-gray-200 dark:border-gray-700">
                       <button
                         onClick={handleLogout}
-                        className={`w-full px-4 py-2 text-left text-sm ${
+                        className={`w-full px-4 py-2 cursor-pointer text-left text-sm ${
                           isDark
                             ? "text-gray-200 hover:bg-gray-700"
                             : "text-gray-700 hover:bg-gray-100"
@@ -145,13 +145,13 @@ function Header({ onMobileMenuOpen }) {
             <div className="flex items-center space-x-3">
               <button
                 onClick={handleSignup}
-                className="hidden md:flex rounded-md bg-blue-500 px-4 py-2 text-sm text-white hover:bg-blue-700"
+                className="hidden md:flex rounded-md bg-blue-400 px-4 py-2 text-sm text-white hover:bg-blue-600 cursor-pointer"
               >
                 Sign Up
               </button>
               <button
                 onClick={handleLogin}
-                className={`rounded-md px-4 py-2 text-sm font-medium ${
+                className={`rounded-md px-4 py-2 cursor-pointer text-sm font-medium ${
                   isDark
                     ? "bg-gray-800 text-white hover:bg-gray-700"
                     : "bg-white text-blue-600 hover:bg-gray-100"
