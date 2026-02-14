@@ -37,7 +37,8 @@ function Dashboard() {
 
     useEffect(() => {
         // Connect to WebSocket
-        const socket = io('http://localhost:5000');
+        // const socket = io('http://localhost:5000');
+        const socket = io(import.meta.env.VITE_BACKEND_URL);
         
         socket.on('processing-123', (data) => {
             setProgress(data.message);
