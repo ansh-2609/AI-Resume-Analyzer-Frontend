@@ -13,7 +13,7 @@ import { setResumes } from '../store/resumeSlice';
 
 
 function Dashboard() {
-    const [resume, setResume] = useState(null);
+    // const [resume, setResume] = useState(null);
     const [uploading, setUploading] = useState(false);
     const [progress, setProgress] = useState('');
     const [dragOver, setDragOver] = useState(false);
@@ -96,11 +96,11 @@ function Dashboard() {
             console.log('response:', response);
             console.log('Upload response:', response.resumeId);
             console.log('response success:', response.success);
-            setResume(response.success);
+            // setResume(response.success);
             setProgress('Analyzing resume...');
 
-            const updatedResumes = await fetchUserResumes(userId);
-            dispatch(setResumes(updatedResumes));
+            // const updatedResumes = await fetchUserResumes(userId);
+            // dispatch(setResumes(updatedResumes));
 
             const analysisResponse = await analysisResume(response.resumeId);
             
@@ -109,9 +109,43 @@ function Dashboard() {
             setProgress('Updating stats!');
 
             // Update stats
-            const updatedStatsResponse = await updateStats(response.resumeId);
-            console.log('Updated Stats:', updatedStatsResponse);
-            setMetadata(updatedStatsResponse);
+            // const updatedStatsResponse = await updateStats(response.resumeId);
+            // console.log('Updated Stats:', updatedStatsResponse);
+            // setMetadata(updatedStatsResponse);
+
+            // Update stats
+            // const updatedStatsResponse = await updateStats(response.resumeId);
+            await updateStats(response.resumeId);
+            // setMetadata(updatedStatsResponse);
+
+            // Refresh resume list
+            const updatedResumes2 = await fetchUserResumes(userId);
+            dispatch(setResumes(updatedResumes2));
+
+            // Automatically select the newly uploaded resume
+            const newlyUploaded = updatedResumes2.find(
+              (r) => r.id === response.resumeId
+            );
+
+            if (newlyUploaded) {
+              const selected = {
+                id: newlyUploaded.id,
+                name: newlyUploaded.name,
+                score: newlyUploaded.resume_score || 0,
+                strengths: newlyUploaded.resume_feedback?.strengths || [],
+                weaknesses: newlyUploaded.resume_feedback?.weaknesses || [],
+                improvements: newlyUploaded.resume_feedback?.improvements || [],
+              };
+
+              setSelectedResume(selected);
+              setMetadata({
+                score: selected.score,
+                strengths: selected.strengths,
+                weaknesses: selected.weaknesses,
+                improvements: selected.improvements,
+              });
+            }
+
 
             setProgress('Stats Updated...');
 
@@ -166,9 +200,13 @@ function Dashboard() {
       const updatedResumes = await fetchUserResumes(userId);
       dispatch(setResumes(updatedResumes));
       setSelectedResume(null);
-      setResume(null);
-      setMetadata({});
-      setStats({});
+      // setMetadata({});
+      setMetadata({
+        score: 0,
+        strengths: [],
+        weaknesses: [],
+        improvements: []
+      });
     }
 
     return (
@@ -211,7 +249,7 @@ function Dashboard() {
                   <p
                     className={`text-2xl font-bold ${isDark ? "text-white" : "text-gray-900"}`}
                   >
-                    {resume || selectedResume ? metadata.score : "--"}
+                    {selectedResume ? metadata.score : "--"}
                   </p>
                 </div>
               </div>
@@ -367,7 +405,7 @@ function Dashboard() {
             </div>
 
             {/* Resume Preview */}
-            {(resume || allResumes?.length > 0) && (
+            {(allResumes?.length > 0) && (
               <div
                 className={`rounded-xl shadow-sm p-6 ${isDark ? "bg-gray-800" : "bg-white"}`}
               >
@@ -486,7 +524,7 @@ function Dashboard() {
           </div>
 
           {/* Resume Insights */}
-          {(resume || selectedResume) && (
+          {(selectedResume) && (
             <div
               className={`mt-8 rounded-xl shadow-sm p-6 ${isDark ? "bg-gray-800" : "bg-white"}`}
             >
