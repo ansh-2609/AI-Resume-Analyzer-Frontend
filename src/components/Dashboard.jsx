@@ -119,7 +119,7 @@ function Dashboard() {
                 setProgress('');
             }, 2000);
         } catch (error) {
-            console.error('Upload failed:', error);
+            console.log('Upload failed:', error);
             setProgress('Upload failed. Please try again.');
             setUploading(false);
         }
